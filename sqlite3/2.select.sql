@@ -17,12 +17,12 @@ order by year DESC; -- 연도별 정렬(내림차순)
 select * from movies_user
 where age=31;
 
--- User.objects.filter(age__lt=20) less then
+-- User.objects.filter(age__lt=20) less than
 select * from movies_user
 where age<20;
 
 -- 20대 
--- User.objects.filter(age__gte=20, age__lt=30) greter than / letter than
+-- User.objects.filter(age__gte=20, age__lt=30) greater than / less than
 select * from movies_user
 where age >= 20 and age < 30;
 
@@ -70,7 +70,7 @@ select * from movies_movie
 where title like '%g__d%';
 
 -- User.objects.values('country').distinct().count()
-select count(distinct country) from movies_user; -- distinct >> 중복을 제거하는 코드(신기한 나라만)
+select count(distinct country) from movies_user; -- distinct >> 중복을 제거(신기한 나라만)
 
 -- User.objects.filter(age__range=[20, 29])
 select * from movies_user
