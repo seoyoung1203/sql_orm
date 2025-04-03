@@ -28,7 +28,7 @@ Django의 management/commands/ 폴더에 새로운 명령어를 만들기
 python manage.py generate
 ```
 ---------
-## Workbench로 할게여(최종적으로는 x)
+### Workbench로 할게여(최종적으로는 x)
 1. settings의 DATABASE를 바꾸고
 ```shell
 DATABASES = {
@@ -65,8 +65,9 @@ insert into movies_movie (title, year)
 values ('dark night', 2008)
  ```
 ---------
- 
 
  - like >> 글자 검사 기능
 
  - distinct >> 중복을 제거하는 코드
+
+ - __in >> 내가 주는 데이터에 일치하는 친구들

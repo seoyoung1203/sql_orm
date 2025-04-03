@@ -1,10 +1,11 @@
--- Movie.objects.all() 전체 가져오기
+-- Movie.objects.all() 전체 영화 가져오기
 select * from movies_movie;
 
---User.objects.all()
+--User.objects.all() 전체 유저 가져오기
 select * from movies_user;
 
 -- 정렬
+
 -- Movie.objects.all().order_by('year')
 select * from movies_movie --데이터 가져오기
 order by year; -- 연도별 정렬(오름차순)
@@ -17,27 +18,29 @@ order by year DESC; -- 연도별 정렬(내림차순)
 select * from movies_user
 where age=31;
 
--- User.objects.filter(age__lt=20) less than
+-- User.objects.filter(age__lt=20) >> less than
 select * from movies_user
 where age<20;
 
--- 20대 
--- User.objects.filter(age__gte=20, age__lt=30) greater than / less than
+-- 20대 이상 과 30대 이하
+-- User.objects.filter(age__gte=20, age__lt=30) >> greater than / less than
 select * from movies_user
 where age >= 20 and age < 30;
 
+-- (개봉일) 2000년도 이하 거나 2010년 이후
 -- Movie.objects.filter(Q(year__lt=2000)|Q(year__gt=2010))
 select * from movies_movie
 where year < 2000 or year > 2010;
 
+-- 최근 개봉작 찾기 
 -- Movie.objects.aggregate(Max('year'))
-select title, MAX(year) from movies_movie; -- 최근 개봉작 찾기 
+select title, MAX(year) from movies_movie; 
 
+-- 유저의 평균찾기
 -- User.objects.aggregate(Avg('age'))
-select AVG(age) from movies_user; -- 유저의 평균찾기
+select AVG(age) from movies_user; 
 
 -- 1번 영화의 평균 평점
-
 -- In [15]: Score.objects.filter(movie_id=1).aggregate(Max('value'), Avg('value'))
 
 -- 1) 1번 영화 뽑아내기 
@@ -48,23 +51,28 @@ select AVG(age) from movies_user; -- 유저의 평균찾기
 select MAX(value), AVG(value) from movies_score
 where movie_id=1; 
 
+-- 1번 유저 뽑기와 세기
 -- len(Score.objects.filter(user_id=1))
 -- Score.objects.filter(user_id=1).count()
 select count(*) from movies_score
 where user_id=1;
 
+-- 'the'가 들어간 영화제목
 -- Movie.objects.filter(title__contains='the')
 select * from movies_movie
 where title like '%the%';
 
+-- 앞글자가 the로 시작
 -- Movie.objects.filter(title__startswith='the')
 select * from movies_movie
-where title like 'the%'; -- 앞글자가 the로 시작
+where title like 'the%'; 
 
+-- 뒷글자가 on으로 끝나는
 -- Movie.objects.filter(title__endswith='on.')
 select * from movies_movie
-where title like '%on.'; -- 뒷글자가 on으로 끝나는
+where title like '%on.'; 
 
+-- g로 시작하고 d로 끝나는 (4글자)
 --ORM에서 사용하려면 정규표현식을 사용해야 합니다. > 데이터에 맞는 정규식 검색해서 사용
 select * from movies_movie
 where title like '%g__d%';
