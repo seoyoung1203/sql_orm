@@ -3,8 +3,11 @@
 --  year=2008
 -- )
 
--- 
+-- movie = Movie()
+-- movie.title = 'spider man'
+-- movie.year = 2010
+-- movie.save()
 
-insert into movies_movie (title, year)
-values ('dark night', 2008); -- 문장 끝 -> ;
+INSERT INTO movies_movie (title, year)
+VALUES ('dark night', 2008); -- 문장 끝 -> ;
 

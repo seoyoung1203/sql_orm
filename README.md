@@ -1,5 +1,5 @@
 # 2025/04/03
-
+- 키워드와 데이터(또는 변수)를 구분하기 위해서 대문자 사용
  ### pip install
 django faker
 mysqlclient
@@ -67,7 +67,9 @@ insert into movies_movie (title, year)
 values ('dark night', 2008)
  ```
 ---------
-
+ - ORDER BY 정렬 기능
+ - ORDER BY DESC 내림차순 정렬
+ 
  - like >> 글자 검사 기능
 
  - distinct >> 중복을 제거하는 코드
