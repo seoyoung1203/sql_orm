@@ -7,7 +7,8 @@ django-extensions
 ipython >셸 플러스 기능 개별로야 설치
 
 - python manage.py shell_plus 
->> orm 문법 터미널에서 사용
+-> orm 문법 터미널에서 사용
+
 - exit() 나갈게요
 --------
 
@@ -28,7 +29,8 @@ Django의 management/commands/ 폴더에 새로운 명령어를 만들기
 python manage.py generate
 ```
 ---------
-### Workbench로 할게여(최종적으로는 x)
+
+- Workbench로 할게여(최종적으로는 x)
 1. settings의 DATABASE를 바꾸고
 ```shell
 DATABASES = {
@@ -52,7 +54,7 @@ mysqlclient 이거 install 하고
 python manage.py migrate
 ```
 
->> 화살표 방향을 sqlite3 -> mySQL로 (두 곳에 모두 생성)
+-> 화살표 방향을 sqlite3 -> mySQL로 (두 곳에 모두 생성)
 -------------
 
 1. orm
@@ -71,3 +73,8 @@ values ('dark night', 2008)
  - distinct >> 중복을 제거하는 코드
 
  - __in >> 내가 주는 데이터에 일치하는 친구들
+
+ - lt=30 → "age가 30 미만"
+ - lte=30 → "age가 30 이하"
+ - gt=20 → "age가 20 초과"
+ - gte=20 → "age가 20 이상"
