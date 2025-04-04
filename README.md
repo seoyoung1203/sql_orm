@@ -1,5 +1,7 @@
 # 2025/04/03
 - 키워드와 데이터(또는 변수)를 구분하기 위해서 대문자 사용
+- C  -> insert
+- R
  ### pip install
 django faker
 mysqlclient
@@ -80,3 +82,5 @@ values ('dark night', 2008)
  - lte=30 → "age가 30 이하"
  - gt=20 → "age가 20 초과"
  - gte=20 → "age가 20 이상"
+
+ - 터미널 클리어 -> ctrl L
