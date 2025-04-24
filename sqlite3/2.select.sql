@@ -15,11 +15,11 @@ ORDER BY year; -- 연도별 정렬(오름차순)
 SELECT * FROM movies_movie --데이터 가져오기
 ORDER BY year DESC; -- 연도별 정렬(내림차순)
 
--- User.objects.filter(age=31)
+-- User.objects.filter(age=31) --나이가 31살인사람
 SELECT * FROM movies_user
 WHERE age=31;
 
--- User.objects.filter(age__lt=20) >> less than
+-- User.objects.filter(age__lt=20) >> less than --나이가 20살 미만
 SELECT * FROM movies_user
 WHERE age<20;
 
@@ -28,21 +28,21 @@ WHERE age<20;
 SELECT * FROM movies_user
 WHERE age >= 20 AND age < 30;
 
--- (개봉일) 2000년도 이전 거나 2010년 이후
+-- (개봉일) 2000년도 이전 거나 2010년 이후 (기준값 포함 차이)
 -- Movie.objects.filter(Q(year__lt=2000)|Q(year__gt=2010))
 SELECT * FROM movies_movie
 WHERE year < 2000 OR year > 2010;
 
 -- 최근 개봉작 찾기 
 -- Movie.objects.aggregate(Max('year'))
-SELECT title, MAX(year) FROM movies_movie; 
+SELECT title, MAX(year) FROM movies_movie; --title 칼럼을 가져와라
 
--- 유저의 평균찾기
+-- 유저 나이의 평균찾기
 -- User.objects.aggregate(Avg('age'))
 SELECT AVG(age) FROM movies_user; 
 
 -- 1번 영화의 평균 평점
--- In [15]: Score.objects.filter(movie_id=1).aggregate(Max('value'), Avg('value'))
+-- Score.objects.filter(movie_id=1).aggregate(Max('value'), Avg('value'))
 
 -- 1) 1번 영화 뽑아내기 
 -- select * from movies_score
@@ -50,9 +50,9 @@ SELECT AVG(age) FROM movies_user;
 
 --2) 평점과 최대 찾기(뽑아내기와 한번에)
 SELECT MAX(value), AVG(value) FROM movies_score
-WHERE movie_id=1; 
+WHERE movie_id=3; 
 
--- 1번 유저 뽑기와 세기
+-- 1번 유저가 평가한 영화의 개수
 -- len(Score.objects.filter(user_id=1)) 모든 데이터를 가져온 후 개수를 셈
 -- Score.objects.filter(user_id=1).count() 데이터베이스에서 직접 개수를 셈
 SELECT COUNT(*) FROM movies_score
